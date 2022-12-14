@@ -28,7 +28,7 @@ button {
     border: none;
     padding: 15px;
     font-size: 30px;
-    margin: 20px;
+    margin: 20px 0px;
     border-radius: 5px;
     background-color: purple;
     color: #fff;
@@ -36,4 +36,17 @@ button {
 ::placeholder {
     color: #fff;
     font-size: 20px;
+}
+
+@media only screen and (max-width: 600px) {
+    button {
+        font-size: 20px;
+        padding: 7px 30px;
+    }
+    h1 {
+        font-size: 40px;
+    }
+    .setTime {
+        padding: 10px;
+    }
 }
