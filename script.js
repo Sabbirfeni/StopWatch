@@ -10,6 +10,9 @@ let leadingMinutes = 0;
 let leadingHours = 0;
 let timeStatus = 'Stopped';
 let timerInterval = null;
+let music = document.querySelector('.music');
+let alarmTime = document.querySelector('#setTime');
+
 
 starStopBtn.addEventListener('click', startCount);
 
@@ -24,17 +27,22 @@ function reset() {
     starStopBtn.innerText = 'Play';
     timeStatus = 'Stopped';
     showStatus.innerText = '';
+    alarmTime.value = '';
+    alarmTime.style.display = 'inline-block';
 }
 
 function startCount() {
+    if(alarmTime.value !== '')
     if(timeStatus === 'Stopped') {
         timerInterval = window.setInterval(countTime, 100);
         timeStatus = 'Counting';
         showStatus.innerText = timeStatus;
         starStopBtn.innerText = 'Pause';
+        alarmTime.style.display = 'none';
     } else {
         window.clearInterval(timerInterval);
         timeStatus = 'Stopped';
+        music.pause();
         showStatus.innerText = 'Paused';
         starStopBtn.innerText = 'Play';
     }
@@ -50,6 +58,7 @@ function countTime() {
     mileSeconds === 10 ? mileSeconds = 0 : '';
     seconds === 60 ? seconds = 0 : '';
     minutes === 60 ? minutes = 0 : '';
+    minutes >= Number(alarmTime.value) ? music.play() : '';
 
     let mainMileSeconds = checkLeadingTime(leadingMileSeconds, mileSeconds)
     let mainSeconds = checkLeadingTime(leadingSeconds, seconds);
