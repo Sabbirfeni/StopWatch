@@ -28,6 +28,8 @@ function reset() {
     timeStatus = 'Stopped';
     showStatus.innerText = '';
     alarmTime.value = '';
+    music.pause();
+    music.currentTime = 0;
     alarmTime.style.display = 'inline-block';
 }
 
