@@ -1,0 +1,25 @@
+body {
+    padding: 0;
+    margin: 0;
+    background-color: black;
+    height: 100vh;
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+h1 {
+    font-size: 120px;
+}
+
+button {
+    cursor: pointer;
+    font-size: 30px;
+    padding: 10px 40px;
+    border: none;
+    background-color: purple;
+    color: #fff;
+    border-radius: 3px;
+}
